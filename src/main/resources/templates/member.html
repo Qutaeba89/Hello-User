@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Page</title>
+</head>
+<body>
+    <h1>Members</h1>
+    <ul>
+        <li th:each="member: ${members}">
+            <!-- <span th:text="'Name: ' + ${member.name} + ' Id: ' + ${member.id}" ></span><br/> -->
+            <span th:text="'Name: ' + ${member.name}" ></span><br/>
+            <span th:text="'Member ID: '+ ${member.id}" ></span><br/>
+            <span th:text="'Phone Number: ' + ${member.phoneNumber}" ></span><br/>
+            <span th:text="'Email: ' + ${member.Email}" ></span><br/>
+
+            <form th:action="@{/delete}" method="post">
+                <input type="hidden" name="id" th:value="${member.id}"/><br/>
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    </ul>
+    <a href="/home">Back to home page</a>
+</body>
+</html>
