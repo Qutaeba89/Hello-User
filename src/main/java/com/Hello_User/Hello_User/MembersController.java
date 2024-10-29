@@ -20,6 +20,18 @@ public class MembersController {
     public String homePage(){
         return "start";
     }
+    @GetMapping("/login")
+    public String longinPage(){
+        return "login";
+    }
+    @PostMapping("/login")
+    public String login(@RequestParam String username, @RequestParam String password, Model model){
+        if("admin".equals(username) && "admin".equals(password)){
+            model.addAttribute("isAdmin", true);
+        }else{
+            model.addAttribute("error", "Invalid username or password");
+        }return "login";
+    }
 
     @GetMapping("/member")
     public String ShowMembers(Model model){
