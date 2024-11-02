@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add member</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Add meember</h1>
+    <form th:action="@{/add-member}" method="post">
+       <label>Name: <input type="text" id="name" name="name" placeholder="Enter your full name" required/></label><br>
+       <label>Phone Number: <input type="text" id="name" name="phoneNumber" placeholder="Phone number" required/></label><br>
+       <label>Email: <input type="text" id="name" name="email" placeholder="Email" required/></label><br>
+
+        <button type="submit">Add</button>
+    </form>
+    <a href="/member">Back to member page</a>
+    <a href="/logout">Logout</a>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Welcom to DAN Gym Members App</h1>
+    <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet aliquid optio, explicabo, qui corporis iste ut similique quia nisi quos, voluptas at autem cum expedita! Perspiciatis exercitationem ex libero sed?</h3>
+    
+        <p th:text="${isAdmin}? 'Admin is logged in.' : 'Admin is not logged in.' "></p>
+        <a href="/member">View members</a>
+
+        <div th:if="${isAdmin}">
+            <a href="/logout">Logout</a>
+        </div>
+
+        <div th:unless="${isAdmin}">
+            <a href="/login"></a>
+        </div>
+</body>
+</html>
