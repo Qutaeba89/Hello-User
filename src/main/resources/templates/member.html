@@ -3,32 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Member Page</title>
+    <!-- <title>Member Page</title> -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Members</h1>
+    <div class="h1">
+        <h1>Members</h1>
+    </div>
     <p th:text="${isAdmin} ? 'Admin is logged in.' : 'Admin is not logged in.'"></p> <!-- här ropade jag function om admin inloggade eller inte-->
-    <ul>
-        <li th:each="member: ${members}"> <!-- här loopar jag alla members och alla kan titta på user och admin-->
-            <span th:text="'Name: ' + ${member.name}" ></span><br/>
-            <span th:text="'Member ID: '+ ${member.id}" ></span><br/>
-            <span th:text="'Phone Number: ' + ${member.phoneNumber}" ></span><br/>
-            <span th:text="'Email: ' + ${member.email}" ></span><br/>
 
-                <form th:if="${isAdmin}" th:action="@{/delete-member}" method="post"> <!-- ropade jag fucntionen thif om admin är inloggad sen radera function-->
-                    <input type="hidden" name="id" th:value="${member.id}"/><br/>
-                    <button type="submit">Delete</button>
-                </form>
-        </li>
-    </ul>
+    <div class="main_container">
+
+        <ul class="members">
+            <li th:each="member: ${members}"> <!-- här loopar jag alla members och alla kan titta på user och admin-->
+                <span th:text="'Name: ' + ${member.name}" ></span>
+                <span th:text="'Member ID: '+ ${member.id}" ></span>
+                <span th:text="'Phone Number: ' + ${member.phoneNumber}" ></span>
+                <span th:text="'Email: ' + ${member.email}" ></span>
     
-    <div th:if="${isAdmin}"> <!-- kolla om admin är inloggad då kan se de två länker-->
+                    <form th:if="${isAdmin}" th:action="@{/delete-member}" method="post"> <!-- ropade jag fucntionen thif om admin är inloggad sen radera function-->
+                        <input type="hidden" name="id" th:value="${member.id}"/><br/>
+                        <button type="submit">Delete</button>
+                    </form>
+            </li>
+        </ul>
+
+    </div>
+
+    
+    <div class="admin_panel2" th:if="${isAdmin}"> <!-- kolla om admin är inloggad då kan se de två länker-->
         <a href="/add-member">Add new memeber</a>
         <a href="/home">Back to home page</a>
     </div>
 
-    <div th:unless="${isAdmin}"> <!-- här om admin är inte inloggad då alla  kan se de två länker-->
+    <div class="user_panel" th:unless="${isAdmin}"> <!-- här om admin är inte inloggad då alla  kan se de två länker-->
         <a href="/home">Back to home page</a>
         <a href="/login">Go to admin login page</a>
     </div>

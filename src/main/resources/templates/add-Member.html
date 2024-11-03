@@ -8,14 +8,17 @@
 </head>
 <body>
     <h1>Add meember</h1>
-    <form th:action="@{/add-member}" method="post">
+    <form class="member_panel" th:action="@{/add-member}" method="post">
        <label>Name: <input type="text" id="name" name="name" placeholder="Enter your full name" required/></label><br>
        <label>Phone Number: <input type="text" id="name" name="phoneNumber" placeholder="Phone number" required/></label><br>
        <label>Email: <input type="text" id="name" name="email" placeholder="Email" required/></label><br>
 
         <button type="submit">Add</button>
     </form>
-    <a href="/member">Back to member page</a>
-    <a href="/logout">Logout</a> 
+    <div class="members-footer">
+        <a href="/member">Back to member page</a>
+        <a href="/logout">Logout</a> 
+    </div>
+
 </body>
 </html>

@@ -7,10 +7,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Welcom to DAN Gym Members App</h1>
-    <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet aliquid optio, explicabo, qui corporis iste ut similique quia nisi quos, voluptas at autem cum expedita! Perspiciatis exercitationem ex libero sed?</h3>
-    
-        <p th:text="${isAdmin}? 'Admin is logged in.' : 'Admin is not logged in.' "></p>
+    <div class="loggedin">
+        <h1>Welcom to DAN Gym Members App</h1>
+        <h3>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet aliquid optio, explicabo, qui corporis iste ut similique quia nisi quos, voluptas at autem cum expedita! Perspiciatis exercitationem ex libero sed?</h3>
+    </div>
+
+    <div class="admin_panel">
+        <p th:text="${isAdmin}? 'Admin is logged in.' : 'Admin is not logged in.' "></p><br><br>
         <a href="/member">View members</a>
 
         <div th:if="${isAdmin}">
@@ -20,5 +23,7 @@
         <div th:unless="${isAdmin}"> 
             <a href="/login"></a>
         </div>
+    </div>
+
 </body>
 </html>

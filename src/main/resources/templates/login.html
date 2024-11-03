@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form th:action="@{/login}" method="post">  <!-- ropade jag login från membercontrollare med method post som ska skicka in date-->
+    <form class="admin_login" th:action="@{/login}" method="post">  <!-- ropade jag login från membercontrollare med method post som ska skicka in date-->
         <label>Username: </label><input type="text" name="username" required/></br>
         <label>Password: </label><input type="password" name="password" required></br>
         <button type="submit">Login</button>
     </form>
     <p th:text="${error}" style="color: red;"></p> <!-- här man får fel medelande om det var fel username eller password-->
-    <a href="/home">Back to home page</a>
+    <a class="login_link"href="/home">Back to home page</a>
 </body>
 </html>
