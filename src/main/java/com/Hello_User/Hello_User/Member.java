@@ -4,8 +4,8 @@ public class Member {
     private String name;
     private Long id;
     private String email;
-    private int phoneNumber;
-    public Member(long id, String name ,String email, int phoneNumber ){
+    private String phoneNumber;
+    public Member(long id, String name ,String email, String phoneNumber ){
         this.name=name;
         this.id=id;
         this.email=email;
@@ -20,11 +20,11 @@ public class Member {
         this.email = email;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

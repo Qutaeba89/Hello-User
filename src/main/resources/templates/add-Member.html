@@ -8,6 +8,9 @@
 </head>
 <body>
     <h1>Add meember</h1>
+    <div th:if="${errorInvalidPhoneNumber}" style="color: red;">
+        <p th:text="${errorInvalidPhoneNumber}" style="color: red;"></p>
+    </div>
     <form class="member_panel" th:action="@{/add-member}" method="post">
        <label>Name: <input type="text" id="name" name="name" placeholder="Enter your full name" required/></label><br>
        <label>Phone Number: <input type="text" id="name" name="phoneNumber" placeholder="Phone number" required/></label><br>

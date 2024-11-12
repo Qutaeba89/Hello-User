@@ -65,9 +65,13 @@ public class MembersController {
     }
 
     @PostMapping("/add-member")
-    public String addMember(@RequestParam String name,@RequestParam  String email, @RequestParam int phoneNumber, HttpSession session ){
+    public String addMember(@RequestParam String name,@RequestParam  String email, @RequestParam String phoneNumber, HttpSession session , Model model){
         Boolean isAdmin = (Boolean) session.getAttribute("isAdmin");
         if(isAdmin !=null && isAdmin){
+            if(!phoneNumber.matches("\\d+")){
+                model.addAttribute("errorInvalidPhoneNumber", "Invalid phonen number try again!");
+                return "add-member";
+            }
             Member member =  new Member(counter.getAndIncrement(), name ,email, phoneNumber); // counter.getAndIncrement() Använder jag det för att det bli enkelt att ändra iframtiden  istallet av ändra på members name.
             members.add(member);
             return "redirect:/member";
